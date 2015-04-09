@@ -1,4 +1,4 @@
 gamedev-deps
 ============
 
-Binaries for gamedev dependancies on Windows
+Scripts for downloading and/or building gamedev dependancies for Windows.
