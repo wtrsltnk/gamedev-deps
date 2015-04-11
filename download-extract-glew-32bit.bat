@@ -2,7 +2,7 @@ REM use windows binaries from http://glew.sourceforge.net
 
 cd "%~dp0"
 
-bin\curl --location --url http://sourceforge.net/projects/glew/files/latest/download?source=typ_redirect > glew.zip
+bin\curl --location --url http://softlayer-ams.dl.sourceforge.net/project/glew/glew/1.12.0/glew-1.12.0-win32.zip > glew.zip
 
 bin\7z x -r -y -o. glew.zip
 
