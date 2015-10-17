@@ -1,20 +1,18 @@
+@echo off
+
+@if "%VSINSTALLDIR%"=="" goto error_no_VSINSTALLDIR
 
 cd "%~dp0"
 
 bin\curl --location --url https://github.com/bulletphysics/bullet3/archive/master.zip > bullet.zip
-
 bin\7z x -r -y -o. bullet.zip
-
-set bit=Win32
 
 mkdir bullet3-master-build
 
 cd bullet3-master-build
-..\bin\cmake\bin\cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_CPU_DEMOS=OFF -DBUILD_BULLET2_DEMOS=OFF -DBUILD_BULLET3=OFF -G "Visual Studio 11" ../bullet3-master
+..\bin\cmake\bin\cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_CPU_DEMOS=OFF -DBUILD_BULLET2_DEMOS=OFF -DBUILD_BULLET3=OFF -G "Visual Studio 11 Win64" ../bullet3-master
 
-set msbuildexe=msbuild.exe
-for /D %%D in (%SYSTEMROOT%\Microsoft.NET\Framework\v4*) do set msbuildexe=%%D\MSBuild.exe
-%msbuildexe% BULLET_PHYSICS.sln /t:Rebuild /p:Configuration=Release /p:Platform=%bit%
+MSBuild.exe BULLET_PHYSICS.sln /t:Rebuild /p:Configuration=Release /p:Platform=x64
 
 mkdir ..\lib
 mkdir ..\bin
@@ -55,3 +53,9 @@ cd ../
 del bullet.zip
 rmdir /s /q bullet3-master
 rmdir /s /q bullet3-master-build
+
+@exit /B 0
+
+:error_no_VSINSTALLDIR
+@echo ERROR: You should run this bat file from your Developer Command Prompt for VS2012
+pause

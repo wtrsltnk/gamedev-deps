@@ -6,7 +6,7 @@ bin\curl --url %CMAKE_URL% > cmake.zip
 bin\7z  x -r -y -o. cmake.zip
 
 set cmakedir="empty"
-for /D %%A IN ("cmake-*") DO set cmakedir=%%A
+for /D %%A IN ("cmake-3*") DO set cmakedir=%%A
 
 move %cmakedir% bin\cmake
 
