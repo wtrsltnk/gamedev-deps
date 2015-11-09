@@ -6,3 +6,4 @@ install_manifest.txt
 /.project
 include
 lib
+bin/curl.exe
