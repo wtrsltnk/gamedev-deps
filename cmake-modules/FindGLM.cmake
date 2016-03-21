@@ -1,5 +1,5 @@
-find_path(GLM_INCLUDE_DIR glm.hpp
-	PATH_SUFFIXES include/glm include
+find_path(GLM_INCLUDE_DIR glm/glm.hpp
+	PATH_SUFFIXES include
 )
 
 mark_as_advanced(GLM_INCLUDE_DIR)
