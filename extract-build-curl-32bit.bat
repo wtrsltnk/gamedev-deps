@@ -23,7 +23,7 @@ goto start
 
 :extract
 
-bin\7z x -r -y -o. "%curlzip%" 
+7z x -r -y -o. "%curlzip%" 
 
 set curldir="empty"
 for /D %%A IN ("curl-7*") DO set curldir=%%A

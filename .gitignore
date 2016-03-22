@@ -6,6 +6,5 @@ install_manifest.txt
 /.project
 include
 lib
-bin/curl.exe
-bin/*.dll
-curl*.zip
+vs2012/bin/*.dll
+mingw64/bin/*.dll
