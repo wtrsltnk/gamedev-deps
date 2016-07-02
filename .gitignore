@@ -3,8 +3,13 @@ CMakeFiles
 Makefile
 cmake_install.cmake
 install_manifest.txt
+curl-*.zip
 /.project
 include
+bin/cmake/*
 lib
 vs2012/bin/*.dll
+vs2015/include/*
+vs2015/lib/*
+vs2015/bin/*
 mingw64/bin/*.dll
