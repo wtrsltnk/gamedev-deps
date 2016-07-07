@@ -12,9 +12,9 @@ vs2012/bin/*
 vs2015/include/*
 vs2015/lib/*
 vs2015/bin/*
-mingw64/bin/*.dll
-mingw64/lib/*.lib
+mingw64/bin/*
+mingw64/lib/*
 mingw64/include/*
-mingw32/bin/*.dll
-mingw32/lib/*.lib
+mingw32/bin/*
+mingw32/lib/*
 mingw32/include/*

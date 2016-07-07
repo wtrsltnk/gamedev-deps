@@ -2,7 +2,9 @@
 
 cd "%~dp0"
 
-@if "%VSINSTALLDIR%"=="" goto error_no_VSINSTALLDIR
+@rem Add path to MSBuild Binaries
+@if exist "%ProgramFiles%\MSBuild\11.0\bin" set PATH=%ProgramFiles%\MSBuild\11.0\bin;%PATH%
+@if exist "%ProgramFiles(x86)%\MSBuild\11.0\bin" set PATH=%ProgramFiles(x86)%\MSBuild\11.0\bin;%PATH%
 
 :start
 
@@ -23,7 +25,7 @@ goto start
 
 :extract
 
-7z x -r -y -o. "%curlzip%" 
+.\bin\7z x -r -y -o. "%curlzip%" 
 
 set curldir="empty"
 for /D %%A IN ("curl-7*") DO set curldir=%%A
@@ -37,16 +39,5 @@ cd ..\..\
 mkdir bin
 copy %curldir%\builds\libcurl-vc11-x86-debug-static-ipv6-sspi-winssl\bin\curl.exe bin\curl.exe
 
-mkdir lib
-copy %curldir%\builds\libcurl-vc11-x86-debug-static-ipv6-sspi-winssl\lib\libcurl_a_debug.lib lib\libcurl.lib
-
-mkdir include
-mkdir include\curl
-copy %curldir%\builds\libcurl-vc11-x86-debug-static-ipv6-sspi-winssl\include\curl\*.h include\curl
-
 rmdir /s /q %curldir%
 @exit /B 0
-
-:error_no_VSINSTALLDIR
-@echo ERROR: You should run this bat file from your Developer Command Prompt for VS2012
-pause
